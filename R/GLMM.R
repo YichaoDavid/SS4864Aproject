@@ -1,5 +1,16 @@
 library(tidyverse)
 library(lme4)
+#' GLMM package with CTSIB.csv
+#'
+#' @param data the data set for my example
+#'
+#' @return A list with summary statistics from the fitted model
+#' @export GLMM()
+#'
+#' @examples
+#' model <- GLMM("ctsib.csv")
+#' GLMM function can create a GLMM model, whose summary statistics are returned.
+
 GLMM <- function(data="ctsib.csv")
 {
   ctsib = read.csv(data)
