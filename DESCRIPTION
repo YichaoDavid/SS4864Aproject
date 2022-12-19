@@ -14,3 +14,7 @@ RoxygenNote: 7.2.2
 Depends: 
     lme4,
     tidyverse
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr

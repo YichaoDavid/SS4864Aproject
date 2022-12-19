@@ -1,0 +1,69 @@
+---
+title: "my-vignette"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{my-vignette}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(SS4864Aproject)
+```
+```{r}
+CTSIB <- read.csv("ctsib.csv")
+summary(CTSIB)
+```
+```{r}
+ctsib <- CTSIB %>%
+  mutate(stable = 1 * (CTSIB == 1))
+summary(ctsib)
+```
+```{r}
+ctsib <- tibble(
+    Surface = as.factor(ctsib$Surface),
+    Vision = as.factor(ctsib$Vision),
+    stable = as.factor(ctsib$stable)
+  )
+table(ctsib)
+```
+```{r message=FALSE, warning=FALSE}
+GLMM("ctsib.csv")
+```
+The first row is the intercept. It means that when surface is foam and vision is close, for the effect to the stable: 
+  the coefficient is -10.9806411;
+  the standard error is 6.399592;
+  the confidence interval is (-23.5238407,1.562558);
+  the Z-value is -5.760559 and the P-value is 8.383585e-09.
+The intercept is significant to the stable.
+
+The second row is the surface norm. It means that when surface is norm and vision is close, for the effect to the stable:
+  the coefficient is 7.8424778;
+  the standard error is 4.309210;
+  the confidence interval is (-0.6035729,16.288528);
+  the Z-value is 6.027186 and the P-value is 1.668387e-09.
+The surface norm is significant to the stable.
+
+The third row is the vision dome. It means that when surface is foam and vision is dome, for the effect to the stable:
+  the coefficient is 0.6903588;
+  the standard error is 0.920573;
+  the confidence interval is (-1.1139642,2.494682);
+  the Z-value is 1.291894 and the P-value is 1.963939e-01.
+The vision dome is not significant to the stable.
+
+The fourth row is the vision open. It means that when surface is foam and vision is open, for the effect to the stable: 
+  the coefficient is 6.5929871;
+  the standard error is 3.778452;
+  the confidence interval is (-0.8127790,13.998753);
+  the Z-value is 5.449193 and the P-value is 5.059891e-08.
+The vision open is significant to the stable.
+
+The 40 random effect ~ N(0,sigma^2). They have the estimated mean for the sigma^2 is 11.19721 with standard error 58.07444. The confidence interval is (-102.6287,125.0231).
+The fluctuation of sigma^2 is relatively stable.
