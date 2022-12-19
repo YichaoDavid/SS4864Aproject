@@ -23,7 +23,7 @@ GLMM <- function(data="ctsib.csv")
   ctsib <- ctsib %>%
     mutate(stable = 1 * (CTSIB == 1))
   ctsib_fit <- run_model(ctsib, "ctsib")
-  n=100
+  n=1000
   Bootstrap_result=matrix(nrow=n,ncol=5)
   for (i in 1:n){
     S = sample(1:480,size=480,replace=TRUE)
