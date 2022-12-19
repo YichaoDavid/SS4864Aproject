@@ -6,7 +6,7 @@ Authors@R:
            comment = c(ORCID = "YOUR-ORCID-ID"))
     person("WEIXUAN", "ZHANG", , "wzhang746@uwo.ca", role = c("aut", "cre"),
            comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: we create a package with the database CTSIB of GLMM.
+Description: we create a package with the database CTSIB of GLMM. Aim at analyzing how the surface and vision treatments affect a person’s stability.
 License: GPL (>= 3)
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
