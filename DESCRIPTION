@@ -7,8 +7,7 @@ Authors@R:
     person("WEIXUAN", "ZHANG", , "wzhang746@uwo.ca", role = c("aut", "cre"),
            comment = c(ORCID = "YOUR-ORCID-ID"))
 Description: we create a package with the database CTSIB of GLMM.
-License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
-    license
+License: GPL (>= 3)
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.2
