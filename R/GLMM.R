@@ -1,6 +1,6 @@
 #' GLMM package with CTSIB.csv
 #'
-#' @param data the data set for my example
+#' @param data the dataset for analysis
 #'
 #' @return A list with summary statistics from the fitted model
 #' @import tidyverse
@@ -9,7 +9,9 @@
 #'
 #' @examples
 #' model <- GLMM("ctsib.csv")
-#' GLMM function can create a GLMM model, whose summary statistics are returned.
+#' the parameter should be a csv dataset file
+#' GLMM function can create a GLMM model, that will return summary of statistics after analysis.
+# add the GLMM function
 GLMM <- function(data="ctsib.csv")
 {
   ctsib = read.csv(data)
@@ -25,10 +27,15 @@ GLMM <- function(data="ctsib.csv")
     Bootstrap_result[i,1:4] = X_fit$beta
     Bootstrap_result[i,5] = X_fit$sigmasq
   }
+  #transfer the result from the function to the tibble set
   Bootstrap_result <- as_tibble(Bootstrap_result)
+  # create standard deviation variable
   SD <- sapply(Bootstrap_result,sd)
+  #create test statistics variable
   TS <- ctsib_fit$test_stat
+  # create the p_value variable
   PR <- 2*pnorm(-abs(TS))
+  # sum the new variables to new tibble set 
   fixed.effect <- tibble(
     coef. = ctsib_fit$beta,
     std.err = SD[1:4],
