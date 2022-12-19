@@ -1,10 +1,12 @@
 Package: SS4864Aproject
-Title: What the Package Does (One Line, Title Case)
+Title: GLMM(CTSIB)PACKAGE
 Version: 0.0.0.9000
 Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"),
+    person("YICHAO", "LIU", , "yliu3743@uwo.ca", role = c("aut", "cre"),
            comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
+    person("WEIXUAN", "ZHANG", , "wzhang746@uwo.ca", role = c("aut", "cre"),
+           comment = c(ORCID = "YOUR-ORCID-ID"))
+Description: we create a package with the database CTSIB of GLMM.
 License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
     license
 Encoding: UTF-8
