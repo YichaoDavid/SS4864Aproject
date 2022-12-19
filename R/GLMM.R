@@ -9,7 +9,8 @@
 #'
 #' @examples
 #' model <- GLMM("ctsib.csv")
-#' GLMM function can create a GLMM model, whose summary statistics are returned.
+#' the parameter should be a csv dataset file
+#' GLMM function can create a GLMM model, that will return summary of statistics after analysis.
 GLMM <- function(data="ctsib.csv")
 {
   ctsib = read.csv(data)
