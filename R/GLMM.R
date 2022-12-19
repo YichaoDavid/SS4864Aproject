@@ -17,13 +17,16 @@
 #' GLMM function can create a GLMM model, that will return summary of statistics after analysis.
 
 # create the GLMM function
-GLMM <- function(data="ctsib.csv")# the argument is the data set
+# As a specific analysis package, we directly set the argument as ctsib.csv
+GLMM <- function(data="ctsib.csv")
 {
   ctsib <- read.csv(data)# name the data
   ctsib <- ctsib %>%
     mutate(stable = 1 * (CTSIB == 1))
   ctsib_fit <- run_model(ctsib, "ctsib")# fit the edited data
   n = 1000
+  #change the n=100 to n=1000. 
+  #It will be a good idea to make the converge better, a more accurate result.
   Bootstrap_result <- matrix(nrow=n,ncol=5)# use Bootstrap to fit the model
   for (i in 1:n){
     S = sample(1:480,size=480,replace=TRUE)
