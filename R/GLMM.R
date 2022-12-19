@@ -25,7 +25,7 @@ GLMM <- function(data="ctsib.csv")
     mutate(stable = 1 * (CTSIB == 1))
   ctsib_fit <- run_model(ctsib, "ctsib")# fit the edited data
   n = 1000
-  #change the n=100 to n=1000. 
+  #change the n=100 to n=1000.
   #It will be a good idea to make the converge better, a more accurate result.
   Bootstrap_result <- matrix(nrow=n,ncol=5)# use Bootstrap to fit the model
   for (i in 1:n){
@@ -37,17 +37,17 @@ GLMM <- function(data="ctsib.csv")
   }
   #transfer the result from the function to the tibble set
   Bootstrap_result <- as_tibble(Bootstrap_result)
-  # create standard deviation variable
+  #create standard deviation variable
   SD <- sapply(Bootstrap_result,sd)
   #create test statistics variable
   TS <- ctsib_fit$test_stat
-  # create the p_value variable
+  #create the p_value variable
   PR <- 2*pnorm(-abs(TS))
-  # fixed effect tibble set
+  #fixed effect tibble set
   fixed.effect <- tibble(
     coef. = ctsib_fit$beta,
     std.err = SD[1:4],
-    # use coef and std.err to sum CI and other target result
+    # use coef. and std.err to sum CI and other target result
     ci.lower = coef. - 1.96 * std.err,
     ci.upper = coef. + 1.96 * std.err,
     Z.value = TS,
