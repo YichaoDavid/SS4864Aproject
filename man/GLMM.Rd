@@ -2,20 +2,24 @@
 % Please edit documentation in R/GLMM.R
 \name{GLMM}
 \alias{GLMM}
-\title{GLMM package with CTSIB.csv}
+\title{Generalized linear mixed effects model function package with data set CTSIB.csv}
 \usage{
-GLMM(data = "ctsib.csv")
+GLMM(data)
 }
 \arguments{
-\item{data}{the data set for my example}
+\item{data}{the data set for analysis}
 }
 \value{
-A list with summary statistics from the fitted model
+A list with summary statistics from the fitted model including fixed effect, random variance, and random effect.
 }
 \description{
-GLMM package with CTSIB.csv
+Generalized linear mixed effects model function package with data set CTSIB.csv
 }
 \examples{
 model <- GLMM("ctsib.csv")
-GLMM function can create a GLMM model, whose summary statistics are returned.
+the parameter should be a csv data set file
+GLMM function can create a GLMM model, that will return summary of statistics after analysis.
+}
+\author{
+Yichao Liu, Weixuan Zhang
 }

@@ -1,4 +1,4 @@
-#' Generalized linear mixed effects model function package with data set CTSIB.csv
+#' Generalized linear mixed effects model function package
 #'
 #' @param data the data set for analysis
 #'
@@ -9,11 +9,7 @@
 #'
 #' @usage GLMM(data)
 #' @author Yichao Liu, Weixuan Zhang
-#' @references
-#' Leppik, I.E., et al. (1985) A double-blind crossover evaluation of progabide in partial seizures.Neurology 35(285).
-#' McKeon CS, Stier AC, McIlroy SE, Bolker BM. Multiple defender effects: synergistic coral defense by mutualist crustaceans. Oecologia. 2012 Aug;169(4):1095-103.
-#' Ozgul et al. (2009) Upper respiratory tract disease, force of infection, and effects on survival of gopher tortoises. Ecological Applications 19(3):786-798.
-#' Steele, R. (1998). Effect of Surface and Vision on Balance. Ph.D. Thesis, Department of Physiotherapy, University of Queensland.
+#'
 #'
 #' @examples
 #' model <- GLMM("ctsib.csv")
