@@ -2,7 +2,7 @@
 % Please edit documentation in R/GLMM.R
 \name{GLMM}
 \alias{GLMM}
-\title{Generalized linear mixed effects model function package with data set CTSIB.csv}
+\title{Generalized linear mixed effects model function package}
 \usage{
 GLMM(data)
 }
@@ -13,7 +13,7 @@ GLMM(data)
 A list with summary statistics from the fitted model including fixed effect, random variance, and random effect.
 }
 \description{
-Generalized linear mixed effects model function package with data set CTSIB.csv
+Generalized linear mixed effects model function package
 }
 \examples{
 model <- GLMM("ctsib.csv")
