@@ -23,15 +23,14 @@ GLMM <- function(data="ctsib.csv")
   ctsib <- read.csv(data)# name the data
   ctsib <- ctsib %>%
     mutate(stable = 1 * (CTSIB == 1))
-  ctsib_fit <- run_model(ctsib, "ctsib")# fit the edited data
-  n = 1000
-  #change the n=100 to n=1000.
+  ctsib_fit <- run_model(ctsib, "ctsib")# fit the data
+  n = 1000#change the n=100 to n=1000.
   #It will be a good idea to make the converge better, a more accurate result.
   Bootstrap_result <- matrix(nrow=n,ncol=5)# use Bootstrap to fit the model
   for (i in 1:n){
     S = sample(1:480,size=480,replace=TRUE)
     X = ctsib[S,]
-    X_fit <- run_model(X,"ctsib")
+    X_fit <- run_model(X,"ctsib")#fit the data by rebuild an X
     Bootstrap_result[i,1:4] = X_fit$beta
     Bootstrap_result[i,5] = X_fit$sigmasq
   }
