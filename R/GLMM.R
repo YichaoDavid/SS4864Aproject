@@ -1,6 +1,6 @@
 #' GLMM package with CTSIB.csv
 #'
-#' @param data the data set for my example
+#' @param data the dataset for analysis
 #'
 #' @return A list with summary statistics from the fitted model
 #' @import tidyverse
