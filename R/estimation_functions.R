@@ -113,6 +113,6 @@ run_model <- function(data, example = "tortoise"){
   ## Return values
   list(beta = coeff,
        sigmasq = sigmasq,
-       re = re,
-       test_stat = test_stat)
+       re = re, #480/40=12
+       test_stat = test_stat)#z-value
 }
