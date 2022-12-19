@@ -18,8 +18,10 @@ knitr::opts_chunk$set(
 library(SS4864Aproject)
 ```
 ```{r}
-CTSIB <- read.csv("ctsib.csv")# download the CTSIB data
-summary(CTSIB)# get the summary of subject, sex, age, height, weight, surface, vision, CTSIB
+# reload the CTSIB data
+CTSIB <- read.csv("ctsib.csv")
+# get the summary of subject, sex, age, height, weight, surface, vision, CTSIB
+summary(CTSIB)
 ```
 ```{r}
 #here what we are interested in are surface, vision, and CTSIB, so we edit the data.
