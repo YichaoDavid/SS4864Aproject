@@ -39,6 +39,7 @@ GLMM <- function(data="ctsib.csv")
   fixed.effect <- tibble(
     coef. = ctsib_fit$beta,
     std.err = SD[1:4],
+    # use coef and std.err to sum CI, the target result
     ci.lower = coef. - 1.96 * std.err,
     ci.upper = coef. + 1.96 * std.err,
     Z.value = TS,
