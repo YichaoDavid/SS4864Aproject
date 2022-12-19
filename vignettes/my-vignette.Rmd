@@ -18,15 +18,19 @@ knitr::opts_chunk$set(
 library(SS4864Aproject)
 ```
 ```{r}
-CTSIB <- read.csv("ctsib.csv")
-summary(CTSIB)
+CTSIB <- read.csv("ctsib.csv")# download the CTSIB data
+summary(CTSIB)# get the summary of subject, sex, age, height, weight, surface, vision, CTSIB
 ```
 ```{r}
+#here what we are interested in are surface, vision, and CTSIB, so we edit the data.
 ctsib <- CTSIB %>%
   mutate(stable = 1 * (CTSIB == 1))
 summary(ctsib)
 ```
 ```{r}
+#the value of surface and vision are all characters. When we change them to the numeric value, it can have a lot of non-convergence situations.
+#in fact,  when we divide 480 numbers into 40 random effects, there will be 12 numbers a group which is small. When we randomly select numbers again later, there will be many repetitions with the same number, which may cause non-convergence.
+#hence, we choose to use cross table that the stable has different values with 0 and 1.
 ctsib <- tibble(
     Surface = as.factor(ctsib$Surface),
     Vision = as.factor(ctsib$Vision),
@@ -35,7 +39,7 @@ ctsib <- tibble(
 table(ctsib)
 ```
 ```{r message=FALSE, warning=FALSE}
-GLMM("ctsib.csv")
+GLMM("ctsib.csv")# use GLMM function
 ```
 The first row is the intercept. It means that when surface is foam and vision is close, for the effect to the stable: 
   the coefficient is -10.9806411;
